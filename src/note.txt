@@ -1,140 +1,62 @@
-// import React, { useState, useEffect } from 'react';
-// import { Routes, Route, Navigate } from 'react-router-dom';   
+MVP
+✅ Any items marked incomplete in this section will require you to use your one redo to re-submit them. Your app must fulfill the below requirements.
 
-// import * as appointmentServices from './services/appointmentServices';
-
-// import Home from './components/Home'; 
-// import Hero from './components/Hero';
-// import Navbar from './components/Navbar'; 
-// import AppointmentList from './components/AppointmentList';
-// import AppointmentDetails from './components/AppointmentDetails'; 
-// import BookingForm from './components/BookingForm'; 
-
-// const App = () => {
-//   const [appointments, setAppointments] = useState([]);
-//   const [selected, setSelected] = useState(null)
-//   const [isFormOpen, setIsFormOpen] = useState(false);
-  
-
-//   const handleSelect = (appointment) => {
-//     setSelected(appointment);
-//     // Close the form if it's open when a new pet is selected.
-//     setIsFormOpen(false);
-//   };
-
-//   const handleFormView = () => {
-//     if (!pet._id) setSelected(null);
-//     setIsFormOpen(!isFormOpen);
-//   };
-  
-
-//   // return (
-//     <>
-//   <AppointmentList
-//     appointments={appointments}
-//     handleSelect={handleSelect}
-//     handleFormView={handleFormView}
-//     isFormOpen={isFormOpen}
-//   />
-//   {/* Pass handleAddAppointment and handleUpdateAppointment to BookingForm */}
-//   {isFormOpen ? (
-//     <BookingForm
-//       handleAddAppointment={handleAddAppointment}
-//       selected={selected} // Pass selected for updating if needed
-//       handleUpdateAppointment={handleUpdateAppointment}
-//     />
-//   ) : (
-//     <AppointmentDetail selected={selected} handleFormView={handleFormView} />
-//   )}
-// </>
-// }
-
-  
-//   const handleAddAppointment = async (formData) => {
-//     try {
-//       const newAppointment = await appointmentService.create(formData);
-
-//       if (newAppointment.err){
-//         throw new Error(newAppointment.err);
-//       }
-
-//       setAppointments([newAppointment, ...appointments]);
-//       setIsFormOpen(false);
-//     } catch (err) {
-//       console.log(err);
-//     }
-//   };
+The back-end application is built with Flask.
+The front-end application is built with React.
+PostgreSQL is used as the database management system.
+The back-end and front-end applications implement JWT token-based authentication to sign up, sign in, and sign out users.
+Authorization is implemented across the front-end and back-end. Guest users (those not signed in) should not be able to create, update, or delete data in the application or access functionality allowing those actions.
+The project has at least one data entity in addition to the User model. At least one entity must have a relationship with the User model.
+The project has full CRUD functionality on both the back-end and front-end.
+The front-end application does not hold any secret keys. Public APIs that require secret keys must be accessed from the back-end application.
+The project is deployed online so that the rest of the world can use it.
 
 
+Code convention
+✅ More than two items marked incomplete in this section will require you to use your one redo to re-submit them. If two or fewer items are marked incomplete, the project is considered passing. Your app must fulfill the below requirements.
+
+The files in the back-end and front-end applications are organized following the conventions demonstrated in lectures.
+The code in the back-end and front-end applications adheres to the coding conventions demonstrated in lectures, like using plural names for lists and arrays.
+The back-end and front-end applications do not contain dead code, commented-out sections, prints, or console logs.
+The back-end application can be used without encountering errors in the terminal. The front-end application can be used without encountering errors in the browser’s console.
+The back-end application follows RESTful routing conventions for routes.
+The back-end and front-end applications are coded using proper indentation.
 
 
-//   const App = () => {
-//     const [appointments, setAppointments] = useState([]);
-  
-//     // Create a new useEffect
-//     useEffect(() => {
-//       // Create a new async function
-//       const fetchAppointments = async () => {
-//         // Call on the pet service's index function
-//         const fetchedAppointments = await appointmentService.index();
-//         // Set pets state to the returned pets data
-//         setAppointments(fetchedAppointments);
-//       };
-//       // Invoke the function
-//       fetchAppointments();
-//       // Add an empty dependency array to the `useEffect()` hook.
-//     }, []);
-  
-//     return <h1>Hello world!</h1>;
-//   };
+UI/UX
+✅ More than two items marked incomplete in this section will require you to use your one redo to re-submit them. If two or fewer items are marked incomplete, the project is considered passing. Your app must fulfill the below requirements.
 
-//   useEffect(() => {
-//     const fetchAppointments = async () => {
-//       try {
-//         const fetchedAppointments = await appointmentService.index();
-//         // Don't forget to pass the error object to the new Error
-//         if (fetchedAppointments.err) {
-//           throw new Error(fetchedAppointments.err);
-//         }
-//         setAppointments(fetchedAppointments);
-//       } catch (err) {
-//         // Log the error object
-//         console.log(err);
-//       }
-//     };
-//     fetchAppointments();
-//   }, []);
+The app exhibits a visual theme, like a consistent color palette and cohesive layout across pages.
+The app is easily navigable by a first-time user. For example, navigation should be done through links instead of having to type in a URL to navigate around the app.
+The app utilizes CSS Flexbox and/or Grid for page layout design.
+Colors used in the app have appropriate contrast that meet the WCAG 2.0 level AA standard.
+When editing an item, the form is pre-filled with that item’s details.
+Only the user who created a piece of data can see and interact with the UI for editing or deleting that data.
+All images have alt text.
+No text is placed on top of an image in a way that makes the text inaccessible.
+All buttons are styled.
 
 
+Git and GitHub
+✅ Any items marked incomplete in this section will require you to use your one redo to re-submit them. Your interactions with Git and GitHub must fulfill the below requirements.
 
-// const App = () => {
-//   const [appointments, setAppointments] = useState([]);
+You are shown as the only contributor to the project on GitHub.
+The GitHub repositories used for the project must be named appropriately. For example, names like book-binder-back-end or wellness-tracker-front-end are appropriate, whereas ga-project or flask-react-project are not. The repos must be publicly accessible. Be sure to create the repos on your personal GitHub account and ensure they are public.
+Your repos should have commits that date back to the very beginning of the project. If you start over with a new repo, do not delete the old one.
+Commit messages should be descriptive of the work done in that commit.
 
-//   // useEffect() code here
 
-//   // Return the new PetList component inside a React fragment.
-//   return (
-//     <>
-//       <AppointmentList appointments={appointments} />
-//     </>
-//   );
-// };
+README requirements
+✅ More than two items marked incomplete in this section will require you to use your one redo to re-submit them. If two or fewer items are marked incomplete, the project is considered passing. Your front-end README must contain the items or sections below. Unless stated otherwise, these requirements apply only to the front-end README file.
 
-// const [appointments, setAppointments] = useState([])
-// const [selected, setSelected] = useState(null)
+Your front-end README.md file should contain the following:
 
-// // useEffect code here
+Screenshot/Logo: A screenshot of your app or a logo.
+Your app’s name: Include a description of your app and its functionality. Background info about the app and why you built it is a nice touch.
+Getting started: This section should include a link to your deployed app, a link to your planning materials, and a link to the back-end repository.
+Attributions: This section should include links to any external resources (such as libraries or assets) you used to develop your application that require attribution. You can exclude this section if it does not apply to your application.
+Technologies used: List the principal technologies used by your application, for example: Python, JavaScript, and any major frameworks or libraries.
+Next steps: Planned future enhancements (stretch goals).
+Your back-end README.md file should contain the following:
 
-// // Add the following:
-// const handleSelect = (appointment) => {
-//   setSelected(appointment)
-// }
-
-// return (
-//   <>
-//     <AppointmentList appointments={appointments} handleSelect={handleSelect}/>
-//   </>
-// );
-
-// export default App;
-
+The name of the project and a link pointing to the front-end repository on GitHub for more details on the project

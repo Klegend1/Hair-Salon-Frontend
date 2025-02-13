@@ -41,26 +41,4 @@ export default AppointmentList;
 
 
 
-//   return (
-//     <div>
-//       <h1>Appointment List</h1>
-//       <div>
-//         {!props.appointments.length ? (
-//           <h2>No Appointments Yet!</h2>
-//         ) : (
-//           <ul>
-//             {props.appointments.map((appointment) => (
-//               <li
-//                 key={appointment._id}
-//                 onClick={() => props.handleSelect(appointment)} // Call handleSelect on click, passing the appointment
-//               >
-//                 {appointment.name}
-//               </li>
-//             ))}
-//           </ul>
-//         )}
-//       </div>
-//     </div>
-//   )};
-  
-// export default AppointmentList;
+

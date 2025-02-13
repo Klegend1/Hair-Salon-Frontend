@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
 
-import * as appointmentService from './services/appointmentServices';
+//import * as appointmentService from './services/appointmentServices';
 
 import AppointmentList from './components/AppointmentList';
 import AppointmentDetails from './components/AppointmentDetails';
 import BookingForm from './components/BookingForm';
 
-// import Home from './components/Home'; 
-// import Hero from './components/Hero';
-// import Navbar from './components/Navbar'; 
+ import Home from './components/Home'; 
+ import Hero from './components/Hero';
+ import Navbar from './components/Navbar'; 
 
 function App() {
   const [appointments, setAppointments] = useState([]);
@@ -96,6 +96,11 @@ function App() {
 
   return (
     <>
+    <Navbar />
+    <Hero />
+    <Home/>
+
+    <h1></h1>
       <AppointmentList
         appointments={appointments}
         handleSelect={handleSelect}
