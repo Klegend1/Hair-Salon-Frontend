@@ -1,27 +1,38 @@
-// import AppointmentDetails from './components/AppointmentDetails';
+import React from 'react';
 
 const AppointmentDetails = (props) => {
- 
+  // If no appointment is selected, show a message
   if (!props.selected) {
     return (
-      <div>
-        <h1>Appointment not found</h1>
+      <div className="p-6 text-center">
+        <h1 className="text-2xl font-semibold text-gray-500">Appointment not found</h1>
       </div>
     );
   }
 
   return (
-    <div>
-      <h1>{props.selected.name}</h1>
-      <h2>Style: {props.selected.style}</h2>
-      <h2>Date: {props.selected.date}</h2>
-      <h2>Time: {props.selected.time}</h2>
-      {/* New button to edit the appointment */}
-      <div>
-        <button onClick={() => props.handleFormView(props.selected)}>
+    <div className="p-6">
+      <h1 className="text-3xl font-bold text-gray-800 mb-4">{props.selected.name}</h1>
+      
+      <div className="mb-4">
+        <h2 className="text-lg text-gray-700">Style: <span className="font-semibold">{props.selected.style}</span></h2>
+        <h2 className="text-lg text-gray-700">Date: <span className="font-semibold">{props.selected.date}</span></h2>
+        <h2 className="text-lg text-gray-700">Time: <span className="font-semibold">{props.selected.time}</span></h2>
+      </div>
+
+      {/* Buttons for Editing and Deleting */}
+      <div className="flex space-x-4">
+        <button
+          onClick={() => props.handleFormView(props.selected)}
+          className="bg-yellow-500 text-white py-2 px-6 rounded-lg hover:bg-yellow-600 transition duration-300"
+        >
           Edit Appointment
         </button>
-        <button onClick={() => props.handleDeletePet(props.selected._id)}>
+        
+        <button
+          onClick={() => props.handleDeleteAppointment(props.selected._id)} // 
+          className="bg-red-500 text-white py-2 px-6 rounded-lg hover:bg-red-600 transition duration-300"
+        >
           Delete Appointment
         </button>
       </div>
@@ -30,47 +41,4 @@ const AppointmentDetails = (props) => {
 };
 
 export default AppointmentDetails;
-
-
-
-
-
-
-
-
-
-
-//   return (
-//     <div className="appointment-details bg-gray-100 p-8 rounded-lg shadow-lg max-w-3xl mx-auto">
-//       <h2 className="text-3xl font-bold mb-6">Appointment Details</h2>
-      
-//       <div className="mb-4">
-//         <h3 className="text-xl font-semibold">Customer Name:</h3>
-//         <p>{props.selected.customerName}</p>
-//       </div>
-//       <div className="mb-4">
-//         <h3 className="text-xl font-semibold">Style:</h3>
-//         <p>{props.selected.style}</p>
-//       </div>
-//       <div className="mb-4">
-//         <h3 className="text-xl font-semibold">Date:</h3>
-//         <p>{props.selected.date}</p>
-//       </div>
-//       <div className="mb-4">
-//         <h3 className="text-xl font-semibold">Time:</h3>
-//         <p>{props.selected.time}</p>
-//       </div>
-
-//       <div className="mt-6">
-//         <a
-//           href="/appointments"
-//           className="bg-blue-500 text-white py-2 px-6 rounded-full font-semibold hover:bg-blue-600 transition"
-//         >
-//           Back to Appointments
-//         </a>
-//       </div>
-//     </div>
-//   );
-// };
-
 

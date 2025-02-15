@@ -1,21 +1,9 @@
-import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
-  const [searchQuery, setSearchQuery] = useState('');
-  const navigate = useNavigate();
-
-  const handleChange = (e) => setSearchQuery(e.target.value);
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (searchQuery.trim()) {
-      navigate(`/appointments/search?q=${searchQuery}`);
-    }
-  };
-
   return (
-    <nav className="bg-black shadow-lg p-4">
+    <nav className="bg-purple-600 shadow-lg p-4"> {/* Changed bg-black to bg-purple-600 */}
       <div className="container mx-auto flex justify-between items-center flex-wrap">
         
         {/* Profile Section */}
@@ -64,22 +52,15 @@ const Navbar = () => {
           </li>
         </ul>
 
-        {/* Search Form */}
-        <form onSubmit={handleSubmit} className="flex items-center mt-4 md:mt-0 bg-gray-700 p-2 rounded-lg shadow-md w-full md:w-1/3">
-          <input
-            type="text"
-            value={searchQuery}
-            onChange={handleChange}
-            placeholder="Search..."
-            className="p-2 border-none rounded-l-lg w-full text-white bg-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
-          />
-          <button
-            type="submit"
-            className="ml-2 p-2 bg-blue-600 text-white rounded-r-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+        {/* Book Now Button */}
+        <div className="mt-4 md:mt-0">
+          <Link
+            to="/book"
+            className="bg-blue-500 text-white py-2 px-6 rounded-full hover:bg-blue-600 transition"
           >
-            Search
-          </button>
-        </form>
+            Book Now
+          </Link>
+        </div>
       </div>
     </nav>
   );

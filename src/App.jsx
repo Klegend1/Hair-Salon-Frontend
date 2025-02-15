@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import { Route, Routes } from 'react-router-dom';
 
-//import * as appointmentService from './services/appointmentServices';
+import * as appointmentService from './services/appointmentServices';
 
 import AppointmentList from './components/AppointmentList';
 import AppointmentDetails from './components/AppointmentDetails';
@@ -15,7 +16,6 @@ function App() {
   const [selected, setSelected] = useState(null);
   const [isFormOpen, setIsFormOpen] = useState(false);
 
-  // Fetch all appointments on component mount
   useEffect(() => {
     const fetchAppointments = async () => {
       try {
@@ -100,11 +100,12 @@ function App() {
     <Hero />
     <Home/>
 
-    <h1></h1>
+    
       <AppointmentList
         appointments={appointments}
         handleSelect={handleSelect}
         handleFormView={handleFormView}
+        handleDeleteAppointment={handleDeleteAppointment}
         isFormOpen={isFormOpen}
       />
       {isFormOpen ? (
@@ -119,7 +120,14 @@ function App() {
           handleFormView={handleFormView}
           handleDeleteAppointment={handleDeleteAppointment}
         />
+        
+        
       )}
+       <Routes>
+            <Route path="/" element={<Home handleDeleteAppointment ={handleDeleteAppointment} />} />/
+            <Route path="/appointment-list" element={< AppointmentList handleDeleteAppointment={handleDeleteAppointment} />} />
+            <Route path="/appoitnments/:id" element={< AppointmentList handleDeleteAppointment ={handleDeleteAppointment} />} />
+          </Routes>
     </>
   );
 }
