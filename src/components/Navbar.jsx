@@ -3,19 +3,26 @@ import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   return (
-    <nav className="bg-purple-600 shadow-lg p-4"> {/* Changed bg-black to bg-purple-600 */}
+    <nav className="bg-purple-600 shadow-lg p-4">
       <div className="container mx-auto flex justify-between items-center flex-wrap">
         
         {/* Profile Section */}
         <div className="flex items-center flex-col md:flex-row">
           <img
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0x9Lnd4ut0rd9RopQS8rZNVBT89kv7PfVXw&s" 
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXJiYs7fFcMFFlwKaEB88LvdMLdsXwtkTLkA&s" 
             alt="Profile"
             className="w-16 h-16 rounded-full border-4 border-white transition-transform duration-300 transform hover:scale-110 md:w-20 md:h-20 lg:w-24 lg:h-24"
           />
           <h2 className="text-white mt-2 md:mt-0 md:ml-4 text-sm md:text-base font-semibold hover:text-yellow-400 hover:bg-gray-800 px-2 py-1 rounded-lg transition duration-300">
             Franny B
           </h2>
+        </div>
+
+        {/* Location Section */}
+        <div className="text-white mt-2 md:mt-0">
+          <p className="text-sm md:text-base font-medium">
+            NYC, NY
+          </p>
         </div>
 
         {/* Navigation Links */}
@@ -31,7 +38,7 @@ const Navbar = () => {
             </Link>
           </li>
           <li>
-            <Link to="/services" className="text-lg sm:text-xl hover:text-blue-400 hover:underline transition-colors duration-300">
+            <Link to="/hairstyles" className="text-lg sm:text-xl hover:text-blue-400 hover:underline transition-colors duration-300">
               Services
             </Link>
           </li>

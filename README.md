@@ -7,12 +7,17 @@ Currently, two official plugins are available:
 - [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
+# HairSalon
 
+![logo](https://c8.alamy.com/comp/2G6MBM5/hairdresser-logo-beauty-salon-logo-with-man-and-woman-silhouettes-vector-illustration-2G6MBM5.jpg)
 
 Technologies Used
-. React.js: 
-. Tailwind CSS: 
-. Git/GitHub:
+. React.js
+. Flask
+. Tailwind CSS
+. Git/GitHub
+. Trello
+. Markdown
 
 
 
