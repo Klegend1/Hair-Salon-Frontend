@@ -1,74 +1,111 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const Navbar = () => {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isUserSignedIn, setIsUserSignedIn] = useState(false);
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen((prev) => !prev);
+  };
+
+  const toggleSignIn = () => {
+    setIsUserSignedIn((prev) => !prev);
+  };
+
   return (
-    <nav className="bg-purple-600 shadow-lg p-4">
-      <div className="container mx-auto flex justify-between items-center flex-wrap">
-        
-        {/* Profile Section */}
-        <div className="flex items-center flex-col md:flex-row">
+    <nav className="bg-gray-900 text-white shadow-md fixed w-full top-0 left-0 z-50">
+      <div className="container mx-auto px-6 py-4 flex justify-between items-center">
+
+        {/* Logo */}
+        <div className="flex items-center space-x-2">
           <img
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXJiYs7fFcMFFlwKaEB88LvdMLdsXwtkTLkA&s" 
-            alt="Profile"
-            className="w-16 h-16 rounded-full border-4 border-white transition-transform duration-300 transform hover:scale-110 md:w-20 md:h-20 lg:w-24 lg:h-24"
+            src="https://i.pinimg.com/736x/44/e9/b5/44e9b5cb7c7d37857da5bb5685cf12cb.jpg" 
+            alt="Logo"
+            className="w-12 h-12 md:w-16 md:h-16 lg:w-20 lg:h-20 rounded-full border-4 border-white hover:border-yellow-400 transition-all duration-300 transform hover:scale-110 hover:shadow-xl object-contain"
           />
-          <h2 className="text-white mt-2 md:mt-0 md:ml-4 text-sm md:text-base font-semibold hover:text-yellow-400 hover:bg-gray-800 px-2 py-1 rounded-lg transition duration-300">
-            Franny B
-          </h2>
-        </div>
-
-        {/* Location Section */}
-        <div className="text-white mt-2 md:mt-0">
-          <p className="text-sm md:text-base font-medium">
-            NYC, NY
-          </p>
-        </div>
-
-        {/* Navigation Links */}
-        <ul className="flex flex-col space-y-6 text-white mt-8 md:mt-0 md:flex-row md:space-x-6 md:space-y-0">
-          <li>
-            <Link to="/" className="text-lg sm:text-xl hover:text-blue-400 hover:underline transition-colors duration-300">
-              Home
-            </Link>
-          </li>
-          <li>
-            <Link to="/appointments" className="text-lg sm:text-xl hover:text-blue-400 hover:underline transition-colors duration-300">
-              Appointments
-            </Link>
-          </li>
-          <li>
-            <Link to="/hairstyles" className="text-lg sm:text-xl hover:text-blue-400 hover:underline transition-colors duration-300">
-              Services
-            </Link>
-          </li>
-          <li>
-            <Link to="/gallery" className="text-lg sm:text-xl hover:text-blue-400 hover:underline transition-colors duration-300">
-              Gallery
-            </Link>
-          </li>
-          <li>
-            <Link to="/about" className="text-lg sm:text-xl hover:text-blue-400 hover:underline transition-colors duration-300">
-              About Us
-            </Link>
-          </li>
-          <li>
-            <Link to="/contact" className="text-lg sm:text-xl hover:text-blue-400 hover:underline transition-colors duration-300">
-              Contact Us
-            </Link>
-          </li>
-        </ul>
-
-        {/* Book Now Button */}
-        <div className="mt-4 md:mt-0">
-          <Link
-            to="/book"
-            className="bg-blue-500 text-white py-2 px-6 rounded-full hover:bg-blue-600 transition"
-          >
-            Book Now
+          <Link to="/" className="text-3xl font-bold text-white hover:text-yellow-400 transition duration-300">
+            Styles By Kai
           </Link>
         </div>
+
+        {/* Desktop Menu */}
+        <div className="hidden md:flex space-x-8">
+          <Link
+            to="/hairstyles"
+            className="text-lg text-white hover:text-blue-400 transition duration-300"
+          >
+            Hairstyles
+          </Link>
+          <Link
+            to="/appointments"
+            className="text-lg text-white hover:text-blue-400 transition duration-300"
+          >
+            Appointments
+          </Link>
+        </div>
+
+        {/* User Sign-In / Log Out */}
+        <div className="flex items-center space-x-4">
+          <Link
+            to={isUserSignedIn ? "#" : "/signin"} 
+            onClick={toggleSignIn}
+            className="text-white hover:text-blue-400 transition duration-300"
+          >
+            {isUserSignedIn ? "Log Out" : "Sign In"}
+          </Link>
+        </div>
+
+        {/* Mobile Hamburger Menu */}
+        <div className="md:hidden flex items-center">
+          <button
+            onClick={toggleMobileMenu}
+            className="text-white hover:text-blue-400 focus:outline-none"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+            </svg>
+          </button>
+        </div>
       </div>
+
+      {/* Mobile Dropdown Menu */}
+      {isMobileMenuOpen && (
+        <div className="md:hidden bg-gray-900 text-white shadow-md space-y-2 py-4">
+          <Link
+            to="/hairstyles"
+            className="block text-lg text-white hover:text-blue-400 text-center transition duration-300"
+          >
+            Hairstyles
+          </Link>
+          <Link
+            to="/appointments"
+            className="block text-lg text-white hover:text-blue-400 text-center transition duration-300"
+          >
+            Appointments
+          </Link>
+          <div className="text-center">
+            <Link
+              to={isUserSignedIn ? "#" : "/signin"}
+              onClick={toggleSignIn}
+              className="text-white hover:text-blue-400 transition duration-300"
+            >
+              {isUserSignedIn ? "Log Out" : "Sign In"}
+            </Link>
+          </div>
+        </div>
+      )}
     </nav>
   );
 };

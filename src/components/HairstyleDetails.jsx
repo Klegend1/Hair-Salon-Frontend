@@ -1,28 +1,39 @@
-// src/components/HairstyleDetails.jsx
 import React from 'react';
-import { useParams } from 'react-router-dom';
 
-const HairstyleDetails = () => {
-  const { hairstyleId } = useParams();  // Get the id from the URL
-  const hairstyles = [
-    { id: 1, title: "Blunt Cut", description: "A sharp, straight cut...", timeDuration: "30-45 minutes" },
-    { id: 2, title: "Bob Cut", description: "A classic cut, jaw-length...", timeDuration: "45 minutes" },
-    // Add all other hairstyles here
-  ];
+function AppointmentDetails({ selected, handleFormView, handleDeleteAppointment }) {
+  if (!selected) return null;
 
-  const hairstyle = hairstyles.find(h => h.id === parseInt(hairstyleId));
+  const { name, style, date, time, id } = selected;
 
-  if (!hairstyle) {
-    return <div>Hairstyle not found</div>;
+  if (!name || !style || !date || !time || !id) {
+    return <div className="p-4 border rounded-lg shadow-md bg-white">Incomplete appointment details.</div>;
   }
 
   return (
-    <div className="container mx-auto p-4">
-      <h2 className="text-3xl font-semibold mb-6">{hairstyle.title}</h2>
-      <p className="mb-4">{hairstyle.description}</p>
-      <p><strong>Duration:</strong> {hairstyle.timeDuration}</p>
+    <div className="p-4 border rounded-lg shadow-md bg-white">
+      <h2 className="text-2xl font-bold mb-4">Appointment Details</h2>
+      {/* Displaying Client Name */}
+      <p><strong>Name:</strong> {name}</p>
+      <p><strong>Style:</strong> {style}</p>
+      <p><strong>Date:</strong> {date}</p>
+      <p><strong>Time:</strong> {time}</p>
+
+      <div className="mt-4">
+        <button
+          onClick={() => handleFormView(selected)}
+          className="px-6 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition duration-300"
+        >
+          Edit Appointment
+        </button>
+        <button
+          onClick={() => handleDeleteAppointment(id)}
+          className="ml-4 px-6 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition duration-300"
+        >
+          Delete Appointment
+        </button>
+      </div>
     </div>
   );
-};
+}
 
-export default HairstyleDetails;
+export default AppointmentDetails;

@@ -1,3 +1,4 @@
+
 import React from 'react';
 
 function AppointmentDetails({ selected, handleFormView, handleDeleteAppointment }) {
@@ -6,8 +7,7 @@ function AppointmentDetails({ selected, handleFormView, handleDeleteAppointment 
   return (
     <div className="p-4 border rounded-lg shadow-md bg-white">
       <h2 className="text-2xl font-bold mb-4">Appointment Details</h2>
-      {/* Displaying Client Name */}
-      <p><strong>Name:</strong> {selected.name}</p> {/* Assuming the name is part of the selected object */}
+      <p><strong>Name:</strong> {selected.name}</p> 
       <p><strong>Style:</strong> {selected.style}</p>
       <p><strong>Date:</strong> {selected.date}</p>
       <p><strong>Time:</strong> {selected.time}</p>
@@ -31,4 +31,3 @@ function AppointmentDetails({ selected, handleFormView, handleDeleteAppointment 
 }
 
 export default AppointmentDetails;
-
